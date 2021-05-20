@@ -65,6 +65,15 @@ assert(nameOf[Default.type](_.default) == nameOf(default))
 assert(nameOf(default(using ???)) == "default")
 ```
 
+Even handing inline methods and values:
+
+```scala
+inline def idZero(inline x: Int): Int = x
+inline val zero = 0
+
+assert(nameOf(idZero(zero)) == "idZero")
+assert(nameOf(zero) == "zero")
+```
 
 Getting name of enum classes:
 

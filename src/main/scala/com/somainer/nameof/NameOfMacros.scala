@@ -10,7 +10,8 @@ object NameOfMacros:
     
     @tailrec
     def extract(term: Term): String = term match
-      case Inlined(_, _, inlined) => extract(inlined)
+      case Inlined(Some(term: Term), _, _) => extract(term)
+      case Inlined(None, _, inlined) => extract(inlined)
       case Ident(n) => NameTransformer.decode(n)
       case Select(_, n) => NameTransformer.decode(n)
       case Block(DefDef(_, _, _, Some(term)) :: Nil, _) => extract(term)

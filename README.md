@@ -1,9 +1,20 @@
 ## `nameOf` macro for Scala3
 
+[![](https://maven-badges.herokuapp.com/maven-central/com.somainer/scala3-nameof_3/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.somainer/scala3-nameof_3)
+[![javadoc](https://javadoc.io/badge2/com.somainer/scala3-nameof_3/javadoc.svg)](https://javadoc.io/doc/com.somainer/scala3-nameof_3)
+
 Get the name of a variable, function, class member, or type as a string at compile-time.
 Just like the C# `nameof` operator.
 
-First, import the `nameOf` method.
+## Usage
+First, add this library as a `provided` dependency in your `Scala3` project, 
+since `nameOf` is only needed during compilation and not at runtime.
+
+```scala
+libraryDependencies += "com.somainer" %% "scala3-nameof" % "0.0.1" % Provided
+```
+
+Then, import the methods in `NameOf` object.
 ```scala
 import com.somainer.nameof.NameOf.*
 ```
